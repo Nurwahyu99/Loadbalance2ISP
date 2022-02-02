@@ -1,0 +1,128 @@
+payload:
+- DOMAIN-SUFFIX,top10vpn.com
+  # > Apple API
+- DOMAIN-SUFFIX,aaplimg.com
+- DOMAIN-SUFFIX,apple.co
+- DOMAIN-SUFFIX,apple.com
+- DOMAIN-SUFFIX,apple-cloudkit.com
+- DOMAIN-SUFFIX,apple-mapkit.com
+- DOMAIN-SUFFIX,appsto.re
+- DOMAIN-SUFFIX,cdn-apple.com
+- DOMAIN-SUFFIX,icloud.com
+- DOMAIN-SUFFIX,icloud-content.com
+- DOMAIN-SUFFIX,itunes.com
+- DOMAIN-SUFFIX,me.com
+- DOMAIN-SUFFIX,mzstatic.com
+- IP-CIDR,17.0.0.0/8,no-resolve
+- IP-CIDR,63.92.224.0/19,no-resolve
+- IP-CIDR,65.199.22.0/23,no-resolve
+- IP-CIDR,139.178.128.0/18,no-resolve
+- IP-CIDR,144.178.0.0/19,no-resolve
+- IP-CIDR,144.178.36.0/22,no-resolve
+- IP-CIDR,144.178.48.0/20,no-resolve
+- IP-CIDR,192.35.50.0/24,no-resolve
+- IP-CIDR,198.183.17.0/24,no-resolve
+- IP-CIDR,205.180.175.0/24,no-resolve 
+
+- DOMAIN-SUFFIX,fiverr-secured-attachments.s3.amazonaws.com
+
+- DOMAIN-SUFFIX,mediafire.com
+- DOMAIN-SUFFIX,drive.google.com
+
+  # > Apple News
+- DOMAIN-SUFFIX,apple.news
+
+  # > Apple Maps
+- PROCESS-NAME,com.apple.geod
+
+  # > Microsoft
+- PROCESS-NAME,OneDrive
+- DOMAIN-KEYWORD,onedrive
+- DOMAIN-SUFFIX,azure.com
+- DOMAIN-SUFFIX,fabric.io
+- DOMAIN-SUFFIX,files.1drv.com
+- DOMAIN-SUFFIX,hotmail.com
+- DOMAIN-SUFFIX,live.com
+- DOMAIN-SUFFIX,live.net
+- DOMAIN-SUFFIX,livefilestore.com
+- DOMAIN-SUFFIX,mesh.com
+- DOMAIN-SUFFIX,microsoft.com
+- DOMAIN-SUFFIX,microsoftonline.com
+- DOMAIN-SUFFIX,microsoft-tst.com
+- DOMAIN-SUFFIX,msn.com
+- DOMAIN-SUFFIX,office.com
+- DOMAIN-SUFFIX,office.net
+- DOMAIN-SUFFIX,onedrive.com
+- DOMAIN-SUFFIX,outlook.com
+- DOMAIN-SUFFIX,p.sfx.ms
+- DOMAIN-SUFFIX,s-microsoft.com
+- DOMAIN-SUFFIX,sharepoint.com
+- DOMAIN-SUFFIX,skype.com
+- DOMAIN-SUFFIX,spoprod-a.akamaihd.net
+- DOMAIN-SUFFIX,storage.msn.com
+
+# > PayPal
+# - USER-AGENT,PayPal*
+- DOMAIN-KEYWORD,paypal
+- DOMAIN-SUFFIX,paypal.com
+- DOMAIN-SUFFIX,paypalobjects.com
+
+  # Fast
+- DOMAIN-SUFFIX,fast.com
+  
+# Speedtest by Ookla
+# USER-AGENT,SpeedTest*
+- DOMAIN-KEYWORD,speedtest
+- DOMAIN-SUFFIX,ooklaserver.net
+- DOMAIN-SUFFIX,speedtest.cbn.id
+  
+# Speed Test by Cloudflare
+- DOMAIN-SUFFIX,speed.cloudflare.com
+
+- DOMAIN-SUFFIX,shopee.co.id 
+- DOMAIN-SUFFIX,*.shopee.co.id 
+- DOMAIN-SUFFIX,*.shopee.com
+- DOMAIN-SUFFIX,*.shopeemobile.com 
+
+- DOMAIN-SUFFIX,.tokopedia.com 
+- DOMAIN-SUFFIX,.tokopedia.net  
+- DOMAIN-SUFFIX,.bukalapak.com 
+
+
+- DOMAIN-SUFFIX,.gojekapi.com 
+- DOMAIN-SUFFIX,.gojek.com 
+
+- DOMAIN-SUFFIX,.telkomsel.com
+
+  #BCA
+- DOMAIN-SUFFIX,klikbca.com 
+- DOMAIN-SUFFIX,appsflyer.com
+
+  # > Fiverr
+- DOMAIN-KEYWORD,Fiverr 
+- DOMAIN-SUFFIX,fiverr.com
+- DOMAIN-SUFFIX,appsflyer.com 
+
+  # > Riot Games
+- DOMAIN-SUFFIX,riotcdn.net
+- DOMAIN-SUFFIX,wr.pvp.net
+- DOMAIN-SUFFIX,riotgames.com
+
+  # > Spark
+- DOMAIN-SUFFIX,api.amplitude.com
+- DOMAIN-SUFFIX,app.smartmailcloud.com
+- DOMAIN-SUFFIX,gate.hockeyapp.net
+- DOMAIN-SUFFIX,smartmailcloud.com
+  
+# > Tesla
+- DOMAIN-KEYWORD,tesla
+
+# > Zooba
+# - USER-AGENT,battleroyale* 
+
+#samehadaku
+- IP-CIDR,194.163.183.129/25 
+
+#Mediafire 
+- DOMAIN-SUFFIX,mediafire.com
+
