@@ -1,0 +1,58 @@
+proxies:
+- name: Netara Tifa ETH2
+  type: trojan
+  server: idtj-tifa.bonds.id
+  port: 80
+  password: fdac90e0-8165-11ec-b075-1239d0255272
+  udp: true
+  sni: maps.gstatic.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth2 
+  routing-mark: 2334
+
+- name: IKD eth2
+  type: trojan
+  server: idtj-ikd.bonds.id
+  port: 80
+  password: 1eb49210-8166-11ec-b6e9-1239d0255272
+  udp: true
+  sni: maps.gstatic.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth2
+  routing-mark: 2334 
+  
+- name: Uninet eth2
+  type: trojan
+  server: idtj-uninet.bonds.id
+  port: 80
+  password: 3879a4d0-8166-11ec-8077-1239d0255272
+  udp: true
+  sni: maps.gstatic.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth2
+  routing-mark: 2334 
+
+- name: XTRA TROJAN SG3 ETH2
+  type: trojan
+  server: vpn2.tjvpn.org
+  port: 80
+  password: f7414ed0-82db-11ec-b236-217f943883dc
+  udp: true
+  sni: maps.gstatic.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth2
+  routing-mark: 2334 
+
+

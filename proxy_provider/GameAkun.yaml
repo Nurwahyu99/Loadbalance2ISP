@@ -1,0 +1,56 @@
+proxies:
+- name: Netara Tifa ETH1
+  type: trojan
+  server: idtj-tifa.bonds.id
+  port: 443
+  password: 6d76bae0-7a80-11ec-9ded-1239d0255272
+  udp: true
+  sni: www.joox.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth0.11 
+  routing-mark: 2333
+
+- name: IKD ETH1
+  type: trojan
+  server: idtj-ikd.bonds.id
+  port: 443
+  password: 550233a0-7a7f-11ec-8a68-1239d0255272
+  udp: true
+  sni: www.joox.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth0.11
+  routing-mark: 2333 
+  
+- name: Netara Tifa ETH2
+  type: trojan
+  server: idtj-tifa.bonds.id
+  port: 80
+  password: 9c8fe740-7a80-11ec-afd2-1239d0255272
+  udp: true
+  sni: maps.gstatic.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth2 
+  routing-mark: 2334
+
+- name: IKD eth2
+  type: trojan
+  server: idtj-ikd.bonds.id
+  port: 80
+  password: 61402e80-7a7f-11ec-9340-1239d0255272
+  udp: true
+  sni: maps.gstatic.com
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+  interface-name: eth2
+  routing-mark: 2334 
