@@ -8,7 +8,8 @@ proxy-groups:
   - TSEL
   - XL
   url: http://www.gstatic.com/generate_204
-  interval: '300'
+  interval: '300' 
+  
 - name: Group - URLTEST
   type: url-test
   disable-udp: false
@@ -18,18 +19,21 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: '300'
   tolerance: 300
+  
 - name: DIRECT - XL
   type: select
   disable-udp: false
   interface-name: eth2
   proxies:
   - DIRECT
+  
 - name: DIRECT - TSEL
   type: select
   disable-udp: false
   interface-name: eth0.11
   proxies:
   - DIRECT
+  
 - name: TSEL
   type: select
   disable-udp: false
@@ -37,6 +41,7 @@ proxy-groups:
   - DIRECT - TSEL
   use:
   - Proxy-provider - TSEL
+  
 - name: XL
   type: select
   disable-udp: false
@@ -44,6 +49,7 @@ proxy-groups:
   - DIRECT - XL
   use:
   - Proxy-provider - XL
+  
 - name: Group - GAME
   type: select
   disable-udp: false
@@ -54,6 +60,7 @@ proxy-groups:
   - XL
   use:
   - Proxy-provider - gameAkun
+  
 - name: Group - SOSMED
   type: select
   disable-udp: false
@@ -64,6 +71,7 @@ proxy-groups:
   - XL
   - LB-2-ISP
   - Group - URLTEST
+
 - name: Group - STREAMING
   type: select
   disable-udp: false
@@ -74,6 +82,7 @@ proxy-groups:
   - XL
   - LB-2-ISP
   - Group - URLTEST
+
 - name: Group - UMUM
   type: select
   disable-udp: false
@@ -84,6 +93,7 @@ proxy-groups:
   - DIRECT - XL
   - LB-2-ISP
   - Group - URLTEST
+
 dns:
   nameserver:
   - 192.168.8.1
@@ -94,7 +104,8 @@ dns:
   - https://dns-google.com/dns-query
   - tls://dns.adguard.com
   - tls://dns-google.com/
-  enable: true
+
+enable: true
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -126,6 +137,7 @@ tun:
 profile:
   store-selected: true
   store-fake-ip: true
+
 rules:
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - RULE-SET,Rule-provider - AdBlock,REJECT
@@ -136,6 +148,7 @@ rules:
 - RULE-SET,Rule-provider - STREAMING,Group - STREAMING
 - MATCH,Group - UMUM
 - MATCH,GLOBAL
+
 rule-providers:
   Rule-provider - GAME:
     type: file
