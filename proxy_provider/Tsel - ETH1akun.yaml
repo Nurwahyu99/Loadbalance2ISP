@@ -1,71 +1,15 @@
-proxies:
-- name: Netara Tifa ETH1
+proxies:  
+- name: Nama Server
   type: trojan
-  server: idtj-tifa.bonds.id
+  server: nama server
   port: 443
-  password: 6c9f3770-8165-11ec-9386-1239d0255272
+  password: password
   udp: true
-  sni: m.joox.com
+  sni: bug
   alpn:
   - h2
   - http/1.1
   skip-cert-verify: true
-  interface-name: eth0.11 
-  routing-mark: 2333
-
-- name: IKD ETH1
-  type: trojan
-  server: idtj-ikd.bonds.id
-  port: 443
-  password: a09d1700-8165-11ec-846a-1239d0255272
-  udp: true
-  sni: www.joox.com
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  interface-name: eth0.11
-  routing-mark: 2333 
-  
-- name: BIZNET ETH1
-  type: trojan
-  server: 103.150.87.101
-  port: 443
-  password: alfiya
-  udp: true
-  sni: www.joox.com
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  interface-name: eth0.11
-  routing-mark: 2333 
-  
-- name: UNINET ETH1
-  type: trojan
-  server: idtj-uninet.bonds.id
-  port: 443
-  password: b6d27460-8165-11ec-a921-1239d0255272
-  udp: true
-  sni: www.joox.com
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  interface-name: eth0.11
-  routing-mark: 2333 
-  
-- name: XTRA TROJAN SG3 ETH1
-  type: trojan
-  server: vpn10.tjvpn.org
-  port: 443
-  password: f44b73a0-8295-11ec-b235-217f943883dc
-  udp: true
-  sni: www.joox.com
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
-  interface-name: eth0.11
+  interface-name: eth1
   routing-mark: 2333 
 
