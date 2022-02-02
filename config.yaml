@@ -1,0 +1,185 @@
+---
+proxy-groups:
+- name: LB-2-ISP
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+  - TSEL
+  - XL
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: Group - URLTEST
+  type: url-test
+  disable-udp: false
+  use:
+  - Proxy-provider - TSEL
+  - Proxy-provider - XL
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+  tolerance: 300
+- name: DIRECT - XL
+  type: select
+  disable-udp: false
+  interface-name: eth2
+  proxies:
+  - DIRECT
+- name: DIRECT - TSEL
+  type: select
+  disable-udp: false
+  interface-name: eth0.11
+  proxies:
+  - DIRECT
+- name: TSEL
+  type: select
+  disable-udp: false
+  proxies:
+  - DIRECT - TSEL
+  use:
+  - Proxy-provider - TSEL
+- name: XL
+  type: select
+  disable-udp: false
+  proxies:
+  - DIRECT - XL
+  use:
+  - Proxy-provider - XL
+- name: Group - GAME
+  type: select
+  disable-udp: false
+  proxies:
+  - DIRECT - TSEL
+  - TSEL
+  - DIRECT - XL
+  - XL
+  use:
+  - Proxy-provider - gameAkun
+- name: Group - SOSMED
+  type: select
+  disable-udp: false
+  proxies:
+  - DIRECT - TSEL
+  - TSEL
+  - DIRECT - XL
+  - XL
+  - LB-2-ISP
+  - Group - URLTEST
+- name: Group - STREAMING
+  type: select
+  disable-udp: false
+  proxies:
+  - DIRECT - TSEL
+  - TSEL
+  - DIRECT - XL
+  - XL
+  - LB-2-ISP
+  - Group - URLTEST
+- name: Group - UMUM
+  type: select
+  disable-udp: false
+  proxies:
+  - TSEL
+  - DIRECT - TSEL
+  - XL
+  - DIRECT - XL
+  - LB-2-ISP
+  - Group - URLTEST
+dns:
+  nameserver:
+  - 192.168.8.1
+  - 192.168.42.129
+  - dhcp://"eth0.11"
+  - dhcp://"eth2"
+  - https://dns.adguard.com/dns-query
+  - https://dns-google.com/dns-query
+  - tls://dns.adguard.com
+  - tls://dns-google.com/
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 127.0.0.1:7874
+  fake-ip-filter:
+  - "+.*"
+  default-nameserver:
+  - 192.168.8.1
+  - 192.168.42.129
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: info
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: reyre
+bind-address: "*"
+external-ui: "/usr/share/openclash/dashboard"
+ipv6: false
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - tcp://8.8.8.8:53
+  - tcp://8.8.4.4:53
+profile:
+  store-selected: true
+  store-fake-ip: true
+rules:
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- RULE-SET,Rule-provider - AdBlock,REJECT
+- RULE-SET,Rule-provider - GAME,Group - GAME
+- RULE-SET,Rule-provider - UMUM,Group - UMUM
+- RULE-SET,Rule-provider - SOSMED,Group - SOSMED
+- RULE-SET,Rule-provider - GOOGLE,Group - UMUM
+- RULE-SET,Rule-provider - STREAMING,Group - STREAMING
+- MATCH,Group - UMUM
+- MATCH,GLOBAL
+rule-providers:
+  Rule-provider - GAME:
+    type: file
+    behavior: classical
+    path: "./rule_provider/RuleGamefix.yaml"
+  Rule-provider - SOSMED:
+    type: file
+    behavior: classical
+    path: "./rule_provider/RuleSosmed.yaml"
+  Rule-provider - STREAMING:
+    type: file
+    behavior: classical
+    path: "./rule_provider/RuleStreaming.yaml"
+  Rule-provider - UMUM:
+    type: file
+    behavior: classical
+    path: "./rule_provider/RuleUmum.yaml"
+  Rule-provider - GOOGLE:
+    type: file
+    behavior: domain
+    path: "./rule_provider/RuleGoogle.yaml"
+  Rule-provider - AdBlock:
+    type: file
+    behavior: classical
+    path: "./rule_provider/AdBlock.yaml"
+proxy-providers:
+  Proxy-provider - gameAkun:
+    type: file
+    path: "./proxy_provider/GameAkun.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  Proxy-provider - TSEL:
+    type: file
+    path: "./proxy_provider/Tsel - ETH1akun.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  Proxy-provider - XL:
+    type: file
+    path: "./proxy_provider/XL - ETH2akun.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
